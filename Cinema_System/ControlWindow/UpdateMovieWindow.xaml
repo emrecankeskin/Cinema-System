@@ -1,0 +1,100 @@
+﻿<Window x:Class="Cinema_System.ControlWindow.UpdateMovieWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cinema_System.ControlWindow"
+        mc:Ignorable="d"
+        Title="Update Movie" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="0.5*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.RowSpan="9" Grid.ColumnSpan="3">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="PaleVioletRed" Offset="0.4"/>
+                    <GradientStop Color="MediumVioletRed" Offset="0.8"/>
+                </LinearGradientBrush>
+
+
+            </Border.Background>
+
+        </Border>
+
+        <Label x:Name="lbMovieId" Content="ID" Grid.Row="1" Height="30"/>
+        <TextBox x:Name="txtbxMovieId" IsEnabled="False" Grid.Column="1" Grid.Row="1" Height="30"/>
+        <!-- textbox disable et sadece id gözüksün datagridde dataya tıklayıp updateye tıklayınca çalışsın -->
+
+        <Label Content="Movie Name" Grid.Row="2" Height="30"/>
+        <TextBox x:Name="txtbxMovieName" Grid.Column="1" Grid.Row="2" Height="30" UndoLimit="50"/>
+
+        <Label x:Name="txtBxMovieDate" Content="Movie Start Date" Grid.Row="3" Height="30"/>
+        <!-- şuraya tarih alınabilir biçimde yap-->
+        <DatePicker Text="Select A Date" x:Name="dateMovie" Grid.Column="1" Grid.Row="3" Width="150" Height="25" Margin="0,0,400,0">
+
+        </DatePicker>
+        <Label Content="Theatre Hour: " Grid.Column="1" Grid.Row="3" Height="30" Width="80" Margin="0,0,150,0"/>
+        <TextBox x:Name="txtbxHour" Grid.Column="1" Grid.Row="3" Height="20" Width="50"/>
+        <Label Content="Theatre Minutes: " Grid.Column="1" Grid.Row="3" Height="30" Width="100" Margin="150,0,0,0"/>
+        <TextBox x:Name="txtbxMinute" Grid.Column="1" Grid.Row="3" Height="20" Width="50" Margin="320,0,0,0"/>
+
+
+
+        <Label  Content="Theatre ID" Grid.Row="4" Height="30"/>
+        <TextBox x:Name="txtbxTheatreId" Grid.Column="1" Grid.Row="4" Height="30"/>
+
+
+
+
+        <Label  Content="Movie Duration" Grid.Row="6" Height="30"/>
+        <TextBox x:Name="txtbxMovieDuration" Grid.Column="1" Grid.Row="6" Height="30"/>
+
+        <Label  Content="Movie Price" Grid.Row="5" Height="30"/>
+        <TextBox x:Name="txtbxMoviePrice" Grid.Column="1" Grid.Row="5" Height="30"/>
+
+        <Button 
+             Grid.Row="8"
+             Grid.Column="1"
+            Background="DimGray"
+            Foreground="IndianRed"
+            Height="35"
+            Width="125"
+            BorderThickness="1.5"
+            Content="Confirm Update"
+            BorderBrush="White"
+            Margin="0,0,60,0" Click="btnConfirmClick" >
+
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Button.Background" Value="White"/>
+                            <Setter Property="Button.Opacity" Value="0.6"/>
+                            <Setter Property="Button.Foreground" Value="Black"/>
+
+                        </Trigger>
+                    </Style.Triggers>
+
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

@@ -1,0 +1,134 @@
+﻿<Page x:Class="Cinema_System.WorkerInfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cinema_System"
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="1200"
+      Title="WorkerInfoPage">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.20*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.40*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="4.5*"/>
+            <ColumnDefinition Width="4.5*"/>
+            <ColumnDefinition Width="1.5*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.ColumnSpan="9" Grid.RowSpan="9"
+        >
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="LightGreen" Offset="0.4"/>
+                    <GradientStop Color="Blue" Offset="0.8"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+        </Border>
+        <Button x:Name="btnBack"
+                Grid.Row="0"
+                Grid.Column="0"
+                Background="Transparent"
+                Foreground="White"
+                Height="39"
+                Width="100"
+                BorderThickness="1.5"
+                Content="Back"
+                BorderBrush="SeaGreen" Click="btnBack_Click"
+                Margin="0,20,30,100">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Button.Background" Value="White"/>
+                            <Setter Property="Button.Opacity" Value="0.6"/>
+                            <Setter Property="Button.Foreground" Value="Black"/>
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+        <TextBlock Grid.Row="0" Text="MOVIE ADD LOG" FontSize="60" Margin="50,50,50,0"  Grid.Column="1"   FontFamily="Bahnschrift SemiBold Condensed"/>
+        <DataGrid x:Name="movieLogGrid" Grid.Row="1" Grid.Column="1" 
+          IsReadOnly="True" CanUserResizeColumns="False" 
+          CanUserAddRows="False" CanUserDeleteRows="False"
+          CanUserResizeRows="False"
+          Background="LightGreen" Margin="0,0,0,36"
+          SelectionMode="Single"
+          >
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="LightGreen" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightPink"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+        </DataGrid>
+
+        <TextBlock Grid.Row="0" Text="BEVERAGE LOG" FontSize="70" Margin="30,50,0,0"  Grid.Column="2"   FontFamily="Bahnschrift SemiBold Condensed"/>
+        <DataGrid x:Name="beverageLogGrid" Grid.Row="1" Grid.Column="2" 
+                IsReadOnly="True" CanUserResizeColumns="False" 
+                CanUserAddRows="False" CanUserDeleteRows="False"
+                CanUserResizeRows="False"
+                Background="LightSkyBlue" Margin="0,0,0,36"
+                SelectionMode="Single"
+             >
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="LightSkyBlue" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightPink"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+        </DataGrid>
+
+        <TextBlock Grid.Row="2" Text="THEATRE LOG" FontSize="70" Margin="50,50,50,0"  Grid.Column="1"   FontFamily="Bahnschrift SemiBold Condensed"/>
+        <DataGrid x:Name="theatreLogGrid" Grid.Row="3" Grid.Column="1" 
+          IsReadOnly="True" CanUserResizeColumns="False" 
+          CanUserAddRows="False" CanUserDeleteRows="False"
+          CanUserResizeRows="False"
+          Background="LightSkyBlue" Margin="0,0,0,36"
+          SelectionMode="Single"
+          >
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="LightSkyBlue" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightPink"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+        </DataGrid>
+
+    </Grid>
+</Page>

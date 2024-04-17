@@ -1,0 +1,227 @@
+﻿<Page x:Class="Cinema_System.UserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cinema_System"
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="1200"
+      Title="UserPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="1*"/>
+
+        </Grid.ColumnDefinitions>
+        <Border Grid.RowSpan="5"
+                Grid.ColumnSpan="3"
+                >
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="PaleVioletRed" Offset="0.4"/>
+                    <GradientStop Color="MediumVioletRed" Offset="0.8"/>
+                </LinearGradientBrush>
+
+
+            </Border.Background>
+
+        </Border>
+        <TextBlock Grid.Row="0" Text="USER PAGE" FontSize="70" Margin="280,0,0,0"  Grid.Column="1"   FontFamily="Bahnschrift SemiBold Condensed"/>
+
+        <Button x:Name="btnAddMoney" Content="ADD MONEY" Grid.Row="2" Grid.Column="0" Width="150" Height="25" Margin="0,60,0,0" Foreground="Blue" Background="Pink" Click="btnAddMoney_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Button.Background" Value="Red"/>
+                            <Setter Property="Button.Opacity" Value="0.6"/>
+                            <Setter Property="Button.Foreground" Value="Black"/>
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="btnSettings" Content="SETTINGS" Grid.Row="2" Grid.Column="0" Width="150" Height="25" Margin="0,130,0,0" Foreground="Blue" Background="Pink" Click="btnSettings_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Button.Background" Value="Red"/>
+                            <Setter Property="Button.Opacity" Value="0.6"/>
+                            <Setter Property="Button.Foreground" Value="Black"/>
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="TOTAL MONEY:" FontSize="20" FontFamily="Bahnschrift SemiBold Condensed" Margin="0,0,50,150" Width="100" Height="20"/>
+        <TextBlock x:Name="txtblMoney" Grid.Row="2" Grid.Column="0" Text="" FontSize="20" FontFamily="Bahnschrift SemiBold Condensed" Margin="125,0,0,150" Width="60" Height="20"/>
+
+        <Button x:Name="closeButton"
+             Grid.Row="0"
+             Grid.Column="2"
+            Background="Transparent"
+            Foreground="White"
+            Height="30"
+            Width="30"
+            BorderThickness="1.5"
+            Content="X"
+            BorderBrush="White" Click="closeButton_Click" Margin="70,0,0,0" >
+
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Button.Background" Value="White"/>
+                            <Setter Property="Button.Opacity" Value="0.6"/>
+                            <Setter Property="Button.Foreground" Value="Black"/>
+
+                        </Trigger>
+                    </Style.Triggers>
+
+                </Style>
+            </Button.Resources>
+        </Button>
+        <ComboBox x:Name="cbSalon" Grid.Row="1" Grid.Column="0" Width="150" Height="30" 
+                  Margin="0,0,0,140" SelectionChanged="cbSalon_SelectionChanged"
+            >
+        </ComboBox>
+        <DatePicker Text="Select A Date" x:Name="dateSalon" Grid.Row="1" Grid.Column="0" Width="150" Height="25" Margin="0,20,0,50">
+            
+        </DatePicker>
+        <Button x:Name="btnSearch" Content="Search" Grid.Row="1" Grid.Column="0" Width="150" Height="25" Margin="0,80,0,0" Foreground="Blue" Background="Pink" Click="btnSearch_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="12" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Button.Background" Value="Red"/>
+                            <Setter Property="Button.Opacity" Value="0.6"/>
+                            <Setter Property="Button.Foreground" Value="Black"/>
+
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <DataGrid x:Name="movieGrid" Grid.Row="1" Grid.Column="1" 
+                  IsReadOnly="True" CanUserResizeColumns="False" 
+                  CanUserAddRows="False" CanUserDeleteRows="False"
+                  CanUserResizeRows="False"
+                  Background="Pink" MouseDoubleClick="movieGrid_MouseDoubleClick"
+                  >
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="Pink" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Pink"/>
+                            <Setter Property="Foreground" Value="Violet"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+        </DataGrid>
+
+        <DataGrid x:Name="ticketGrid" Grid.Row="2" Grid.Column="1" 
+          IsReadOnly="True" CanUserResizeColumns="False" 
+          CanUserAddRows="False" CanUserDeleteRows="False"
+          CanUserResizeRows="False"
+          Background="Pink" MouseDoubleClick="ticketGrid_MouseDoubleClick" LoadingRow="ticketGrid_LoadingRow"
+          >
+            <!--
+                <DataGrid.Columns>
+        <DataGridTextColumn Header="Movie Name"/>
+        <DataGridTextColumn Header="Theatre No" />
+        <DataGridTextColumn Header="Movie Date" />
+    </DataGrid.Columns>
+    -->
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="Orange" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="pink"/>
+                            <Setter Property="Foreground" Value="Violet"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+        </DataGrid>
+
+        <DataGrid x:Name="beverageGrid" Grid.Row="3" Grid.Column="1" 
+            IsReadOnly="True" CanUserResizeColumns="False" 
+            CanUserAddRows="False" CanUserDeleteRows="False"
+            CanUserResizeRows="False"
+            Background="Pink" MouseDoubleClick="ticketGrid_MouseDoubleClick"
+        >
+            <!--
+            <DataGrid.Columns>
+    <DataGridTextColumn Header="Movie Name"/>
+    <DataGridTextColumn Header="Theatre No" />
+    <DataGridTextColumn Header="Movie Date" />
+</DataGrid.Columns>
+-->
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="Pink" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Pink"/>
+                            <Setter Property="Foreground" Value="Violet"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+        </DataGrid>
+        <!-- buraya takvim tarzı bir şey ekleyip tarih ve salona göre filmleri getirtme işlemi yapılabilir-->
+        <!-- row 2 colum 1 eski ve yeni alınan tüm biletleri göster iptal seçeneği koyabilirsin ?-->
+    
+        <!-- tıkladığım filmin tarihine göre koltuk seçimi yapılacak ve ona göre theatrepage açılacak-->
+        <Button 
+            Grid.Row="0"
+            Grid.Column="2"
+            Background="Transparent"
+            Foreground="White"
+            Height="35"
+            Width="80"
+            BorderThickness="1.2"
+            Content="Logout"
+            BorderBrush="White"
+            Margin="0,0,60,0" Click="btnLogout_click">
+
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Button.Background" Value="White"/>
+                            <Setter Property="Button.Opacity" Value="0.6"/>
+                            <Setter Property="Button.Foreground" Value="Black"/>
+
+                        </Trigger>
+                    </Style.Triggers>
+
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Page>
